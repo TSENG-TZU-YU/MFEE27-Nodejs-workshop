@@ -16,7 +16,8 @@ let ary = [
   },
 ];
 
-//1
+
+//1. 新增ary為價錢的陣列
 let newAry1 = ary.map((item) => {
   if (item.type === "A") {
     return `0` ;
@@ -27,7 +28,7 @@ let newAry1 = ary.map((item) => {
 
 console.log(newAry1);
 
-//2
+//2 新增ary為價錢*2的陣列
 let newAry2 = ary.map((item) => {
   let result = [];
   result=[item.price*2];

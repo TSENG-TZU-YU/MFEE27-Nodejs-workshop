@@ -22,14 +22,16 @@ let arr = [
    
   ];
 
+//找價錢為150的
+
   let result=arr.find((item)=>{
     return item.price == "150";
   })
 
    //console.log(result);
 
+   
 // for-loop
-
   function found(ary){
     let result = []
     for(let i = 0; i < ary.length ; i++){
