@@ -23,12 +23,10 @@ let itemAge= items.sort(function(a,b){
 })
 //  console.log(itemAge);
 
-let result=itemAge.filter(function(item){
-  return item.age=items.age;
-})
-console.log(result)
-
-
+// let result=itemAge.filter(function(item){
+//   return item.age=items.age;
+// })
+// console.log(result)
 
 //  let resultMap = ageItem.map(function(age){
 //     let result = items.filter(function(item){
