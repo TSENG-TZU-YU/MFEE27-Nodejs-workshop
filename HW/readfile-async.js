@@ -10,16 +10,27 @@ function doRead(path, options) {
   });
 }
 
-async function test() {
+//簡化
+(async ()=>{
   try {
     let result=await doRead(`test.txt`, `utf8`);
     console.log(result)
     let result1=await doRead(`test1.txt`, `utf8`);
     console.log(result1)
-    await doRead(`test2.txt`, `utf8`);
+  } catch (err) {
+    console.error(err);
+  }
+})()
+
+/*async function test(){
+  try {
+    let result=await doRead(`test.txt`, `utf8`);
+    console.log(result)
+    let result1=await doRead(`test1.txt`, `utf8`);
+    console.log(result1)
   } catch (err) {
     console.error(err);
   }
 }
-test();
+test();*/
 
