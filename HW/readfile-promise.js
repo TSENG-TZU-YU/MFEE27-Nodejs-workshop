@@ -24,19 +24,19 @@ doRead(`test.txt`, `utf8`)
   });
 
 //2 執行會出現undefined + data
-const fs = require("fs");
-function doRead(path, options) {
-  return new Promise((resolve, reject) => {
-    resolve(
-      fs.readFile(path, options, (err, data) => {
-        if (err) {
-          return console.log("發生錯誤", err);
-        }
-        console.log(data);
-      })
-    );
-  });
-}
+// const fs = require("fs");
+// function doRead(path, options) {
+//   return new Promise((resolve, reject) => {
+//     resolve(
+//       fs.readFile(path, options, (err, data) => {
+//         if (err) {
+//           return console.log("發生錯誤", err);
+//         }
+//         console.log(data);
+//       })
+//     );
+//   });
+// }
 
 // let readfile = doRead(`test.txt`, `utf8`);
 // readfile
