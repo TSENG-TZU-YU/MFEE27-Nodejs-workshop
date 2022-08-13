@@ -21,24 +21,6 @@
 
       syncBtn.addEventListener("click", function () {
         responseDom.innerText = "開始同步請求";
-        // 實作同步請求
-        /*var xhr = new XMLHttpRequest();
-        xhr.addEventListener('load', function () {
-          if (xhr.status === 200) {
-            responseDom.innerHTML = `同步請求已回覆 ${xhr.responseText}`;
-          } else {
-            responseDom.innerHTML = `同步請求失敗，狀態碼 ${xhr.status}`;
-          }
-        });
-
-        xhr.onerror = function (event) {
-          responseDom.innerHTML = `XHR 同步請求錯誤`;
-        };
-
-        // method, url, async (default: true)
-        xhr.open('GET', 'http://54.71.133.152:3000', false);
-        xhr.send();*/
-
         //Promise
         function doWork(method, url) {
           return new Promise((resolve, reject) => {
@@ -74,25 +56,6 @@
       var asyncBtn = document.getElementById("asyncBtn");
       asyncBtn.addEventListener("click", function () {
         responseDom.innerText = "開始「非」同步請求";
-        // 實作非同步請求
-        /* var xhr = new XMLHttpRequest();
-        xhr.addEventListener("load", function () {
-          if (xhr.status === 200) {
-            responseDom.innerHTML = `非同步請求已回覆 ${xhr.responseText}`;
-          } else {
-            responseDom.innerHTML = `非同步請求失敗，狀態碼 ${xhr.status}`;
-          }
-        });
-
-        xhr.onerror = function (event) {
-          responseDom.innerHTML = `XHR 非同步請求錯誤`;
-        };
-
-        // method, url, async (default: true)
-        // GET, POST, UPDATE, DELETE, PUT, PATCH,...
-        xhr.open("GET", "http://54.71.133.152:3000", true);
-        xhr.send();*/
-
         //Promise
         function doWork(method, url) {
           return new Promise((resolve, reject) => {
