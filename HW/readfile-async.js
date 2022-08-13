@@ -10,7 +10,7 @@ function doRead(path, options) {
   });
 }
 
-//簡化
+//IIFE 立即執行函式
 (async ()=>{
   try {
     let result=await doRead(`test.txt`, `utf8`);

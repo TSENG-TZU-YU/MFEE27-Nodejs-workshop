@@ -4,7 +4,8 @@ function doRead(path, options) {
   return new Promise((resolve, reject) => {
     fs.readFile(path, options, (err, data) => {
       if (err) {
-        return reject("發生錯誤", err);
+        return reject( err);
+        // return reject("發生錯誤", err);  "發生錯誤"不要這樣寫
       }
       resolve(data);
     });
