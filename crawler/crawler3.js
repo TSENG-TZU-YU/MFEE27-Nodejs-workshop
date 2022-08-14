@@ -12,35 +12,32 @@ let queryDate = moment().format("YYYYMMDD"); //'20220814';
 
 // fsPromise.readfile('stock.txt', 'utf-8')
 
-async function fsp(){
+async function fsp() {
   try {
     let fs = await fsPromise.readFile("stock.txt", "utf-8");
     console.log(fs);
   } catch (e) {
     console.error(e);
   }
-};
+}
 
-
-
-  // axios.get(url, 設定)
-  (async () => {
-    try {
-      let response = await axios.get(
-        `https://mis.twse.com.tw/stock/api/getStockInfo.jsp?ex_ch=tse_%3C`,
-        {
-          params: {
-            response: "json",
-            date: queryDate,
-            stockNo: fsp(),
-          },
-        }
-      );
-      console.log(response.data);
-    } catch (e) {
-      console.error(e);
-    }
+// axios.get(url, 設定)
+(async () => {
+try {
+    let response = await axios.get(
+      `https://mis.twse.com.tw/stock/api/getStockInfo.jsp?ex_ch=tse_%3C`,
+      {
+        params: {
+          response: "json",
+          date: queryDate,
+          stockNo: fsp(),
+        },
+      }
+    );
+    console.log(response.data);
+  } catch (e) {
+    console.error(e);
   }
-)();
+})();
 
 // https://mis.twse.com.tw/stock/api/getStockInfo.jsp?ex_ch=tse_%3C
