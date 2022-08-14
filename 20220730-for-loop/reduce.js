@@ -1,17 +1,17 @@
 let ary = [
   {
     id: 1,
-    type: "A",
+    type: 'A',
     price: 100,
   },
   {
     id: 2,
-    type: "B",
+    type: 'B',
     price: 200,
   },
   {
     id: 3,
-    type: "A",
+    type: 'A',
     price: 150,
   },
 ];
@@ -22,10 +22,10 @@ let result = ary.reduce((acc, cur) => acc + cur.price, 0);
 
 //for-loop
 function reduce(ary) {
-    let result=0;
+  let result = 0;
   for (let i = 0; i < ary.length; i++) {
-    result+=ary[i].price;
+    result += ary[i].price;
   }
   return result;
 }
-console.log(reduce(ary))
+console.log(reduce(ary));

@@ -1,9 +1,9 @@
-const fs = require("fs");
+const fs = require('fs');
 function doRead(path, options) {
   return new Promise((resolve, reject) => {
     fs.readFile(path, options, (err, data) => {
       if (err) {
-        return reject("發生錯誤", err);
+        return reject('發生錯誤', err);
       }
       resolve(data);
     });
@@ -11,16 +11,16 @@ function doRead(path, options) {
 }
 
 //IIFE 立即執行函式
-(async ()=>{
+(async () => {
   try {
-    let result=await doRead(`test.txt`, `utf8`);
-    console.log(result)
-    let result1=await doRead(`test1.txt`, `utf8`);
-    console.log(result1)
+    let result = await doRead(`test.txt`, `utf8`);
+    console.log(result);
+    let result1 = await doRead(`test1.txt`, `utf8`);
+    console.log(result1);
   } catch (err) {
     console.error(err);
   }
-})()
+})();
 
 /*async function test(){
   try {
@@ -33,4 +33,3 @@ function doRead(path, options) {
   }
 }
 test();*/
-

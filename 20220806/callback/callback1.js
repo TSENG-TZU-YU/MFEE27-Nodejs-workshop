@@ -16,22 +16,22 @@ console.log(`開始工作 at ${dt.toISOString()}`);
 // 執行成功: 完成工作 刷牙 at 2022-08-06T02:46:57.761Z
 // 執行成功: 完成工作 吃早餐 at 2022-08-06T02:47:02.761Z
 // 執行成功: 完成工作 寫功課 at 2022-08-06T02:47:05.761Z
-doWork("刷牙", 1000, function (err, data) {
+doWork('刷牙', 1000, function (err, data) {
   if (err) {
-    console.error("發生錯誤了", err);
+    console.error('發生錯誤了', err);
   } else {
-    console.log("執行成功:", data);
+    console.log('執行成功:', data);
     //當執行成功後 才能執行下一個
-    doWork("吃早餐", 1000, (err, data) => {
+    doWork('吃早餐', 1000, (err, data) => {
       if (err) {
-        console.error("發生錯誤了", err);
+        console.error('發生錯誤了', err);
       } else {
-        console.log("執行成功:", data);
-        doWork("寫功課", 1000, function (err, data) {
+        console.log('執行成功:', data);
+        doWork('寫功課', 1000, function (err, data) {
           if (err) {
-            console.error("發生錯誤了", err);
+            console.error('發生錯誤了', err);
           } else {
-            console.log("執行成功:", data);
+            console.log('執行成功:', data);
           }
         });
       }

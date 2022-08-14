@@ -1,10 +1,10 @@
 // 1 正常
-const fs = require("fs");
+const fs = require('fs');
 function doRead(path, options) {
   return new Promise((resolve, reject) => {
     fs.readFile(path, options, (err, data) => {
       if (err) {
-        return reject( err);
+        return reject(err);
         // return reject("發生錯誤", err);  "發生錯誤"不要這樣寫
       }
       resolve(data);
@@ -15,7 +15,7 @@ function doRead(path, options) {
 doRead(`test.txt`, `utf8`)
   .then((data) => {
     console.log(data);
-     return doRead(`test1.txt`, `utf8`);
+    return doRead(`test1.txt`, `utf8`);
   })
   .then((data) => {
     console.log(data);
@@ -52,4 +52,3 @@ doRead(`test.txt`, `utf8`)
 //   .catch((err) => {
 //     console.log(err);
 //   });
-

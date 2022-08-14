@@ -18,23 +18,23 @@ const fs = require('fs/promises');
 
     // 去查詢股票代碼的中文名稱
     // https://www.twse.com.tw/zh/api/codeQuery?query=2330
-    let queryNameResponse = await axios.get('https://www.twse.com.tw/zh/api/codeQuery',{
-      params:{
+    let queryNameResponse = await axios.get('https://www.twse.com.tw/zh/api/codeQuery', {
+      params: {
         query: stockNo,
       },
-    })
+    });
     // console.log(queryNameResponse.data)
     //抓取  query: '2603', suggestions: [ '2603\t長榮']
     let suggestions = queryNameResponse.data.suggestions;
     //抓取第一筆資料
-    let sug=suggestions[0];
+    let sug = suggestions[0];
     //如果出現 '無符合之代碼或名稱' 這個字串 就丟出結果
-    if(sug==='(無符合之代碼或名稱)'){
-      throw new Error (sug)
-    } 
+    if (sug === '(無符合之代碼或名稱)') {
+      throw new Error(sug);
+    }
     //若是有 這個股票 2603\t長榮 => \t 用  String.Split 去切分
-    let stockName =  sug.split('\t').pop();  //只抓 2603 切開的最後一個物件 ['2603','長榮'] 
-    console.log('sug :' , stockName)
+    let stockName = sug.split('\t').pop(); //只抓 2603 切開的最後一個物件 ['2603','長榮']
+    console.log('sug :', stockName);
 
     let queryDate = moment().format('YYYYMMDD'); //'20220814';
     let response = await axios.get(`https://www.twse.com.tw/exchangeReport/STOCK_DAY`, {
