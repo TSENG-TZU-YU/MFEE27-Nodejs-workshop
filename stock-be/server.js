@@ -80,7 +80,7 @@ app.get('/test', (req, res, next) => {
 //   res.send('Hello Test 2');
 // });
 
-app.get('/api/1.0/stacks', async (req, res, next) => {
+app.get('/api/0.0/stacks', async (req, res, next) => {
   let [data] = await pool.execute('SELECT * FROM `stocks`');
   //   console.log(data);
   res.json(data);
