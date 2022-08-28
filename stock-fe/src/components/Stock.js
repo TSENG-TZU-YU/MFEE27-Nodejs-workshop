@@ -7,6 +7,7 @@ const Stock = () => {
 
   const [data,setData]= useState([]);
 
+
   useEffect (()=>{
     console.log('Stock', 'useEffect []');
     console.log('useEffect[]', data);
@@ -19,7 +20,7 @@ const Stock = () => {
   },[]);
 
 
-
+// 只跑一次
   useEffect (()=>{
     console.log('Stock', 'useEffect [data]');
     console.log('useEffect[data]', data);
