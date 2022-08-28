@@ -34,9 +34,10 @@ const StockDetails = () => {
    
   // 製作分頁按鈕
   const getPage=()=>{
-    // 要從陣列後面依序放頁數
+    // 先宣告一個陣列
     let pages=[]
     for(let i=1;i<=lastPage;i++){
+      //要從陣列後面依序放頁數
       pages.push(  <li
         style={{
           display: 'inline-block',
