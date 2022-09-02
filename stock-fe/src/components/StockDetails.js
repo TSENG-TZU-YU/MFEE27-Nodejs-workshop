@@ -1,11 +1,13 @@
 import { useEffect,useState } from 'react';
 import {useParams} from 'react-router-dom'
 import axios from 'axios';
+import { API_URL} from '../utils/config'
 
 const StockDetails = () => {
   const [error, setError] = useState(null);
   const [data, setData] = useState([]);
 
+  // 一個狀態管理一個物件
   const [lastPage, setLastPage] = useState(1);
   const [page, setPage] = useState(1);
 
@@ -19,7 +21,7 @@ const StockDetails = () => {
       console.log('StockDetail', 'useEffect []');
       console.log('useEffect[]', data);
       let getStockDetail  = async()=>{
-        let result = await axios.get(`http://localhost:3001/api/0.0/stacks/${stockId}?page=${page}`);
+        let result = await axios.get(`${API_URL}/stacks/${stockId}?page=${page}`);
 
         // 2. setData
         // 加分頁 回傳的 data 變兩層
