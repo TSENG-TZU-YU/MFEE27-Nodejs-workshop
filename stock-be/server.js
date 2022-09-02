@@ -48,22 +48,30 @@ app.get('/ssr', (req, res, next) => {
 // pipeline pattern
 
 // 一般的 middleware
-app.use((req, res, next) => {
-  console.log('這是中間件 A');
-  let now = new Date();
-  console.log(`有人來訪問喔 at ${now.toISOString()}`);
-  // 一定要寫，讓 express 知道要跳去下一個中間件
-  next();
-});
+// app.use((req, res, next) => {
+//   console.log('這是中間件 A');
+//   let now = new Date();
+//   console.log(`有人來訪問喔 at ${now.toISOString()}`);
+//   // 一定要寫，讓 express 知道要跳去下一個中間件
+//   next();
+// });
 
-app.use((req, res, next) => {
-  console.log('這是中間件 C');
-  // 一定要寫，讓 express 知道要跳去下一個中間件
-  next();
-});
+// app.use((req, res, next) => {
+//   console.log('這是中間件 C');
+//   // 一定要寫，讓 express 知道要跳去下一個中間件
+//   next();
+// });
 
-let stockRouter = require('./routers/stocks.js');
+let stockRouter = require('./routers/stocks');
 app.use('/api/0.0/stacks', stockRouter);
+
+// 如果要讓 express 認得 json
+// Content-Type: application/json
+// 就要加上這個中間件
+app.use(express.json());
+
+let authRouter = require('./routers/auth');
+app.use(authRouter);
 
 // 路由中間件
 // app.[method]
