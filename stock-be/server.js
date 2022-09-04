@@ -2,6 +2,8 @@ const express = require('express');
 // express => Node.js Web 應用程式架構
 // 初始化 dotenv
 require('dotenv').config();
+// 設置靜態檔案
+const path = require('path');
 // 利用 express 這個框架/函式庫 來建立一個 web application
 const app = express();
 // 在程式碼中，不要讓某些常數散亂在專案的各處
@@ -9,6 +11,24 @@ const app = express();
 // 目標是: 只需要改一個地方，全部的地方就生效
 // 降低漏改到的風險 -> 降低程式出錯的風險
 const port = process.env.SERVER_PORT;
+
+// 啟用 session
+const expressSession = require('express-session');
+// 把 session 存在硬碟中
+var FileStore = require('session-file-store')(expressSession);
+app.use(
+  expressSession({
+    store: new FileStore({
+      // session 儲存的路徑
+      path: path.join(__dirname, '..', 'sessions'),
+    }),
+    secret: process.env.SESSION_SECRET,
+    // 如果 session 沒有改變的話，要不要重新儲存一次？
+    resave: false,
+    // 還沒初始化的，要不要存
+    saveUninitialized: false,
+  })
+);
 
 // npm i cors
 const cors = require('cors');
